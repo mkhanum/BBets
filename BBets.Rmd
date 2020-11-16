@@ -57,7 +57,13 @@ results[j]=bank
 hist(results)
 ```
 
+# Profit Estimate
 
+```{r}
+favstats(results)
+```
+
+The expected amount of money is `r mean(results)`
 
 # What size of class makes the 2:1 bet fair?  
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
