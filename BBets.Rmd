@@ -42,6 +42,20 @@ bDAYS=sample(daysYEAR,35,replace=TRUE)
 length(unique(bDAYS))
 ```
 
+```{r}
+results=vector("numeric")
+for(j in 1:1000){ 
+bank=0
+for(i in 1:637){
+  class=sample(daysYEAR,35,replace=TRUE)
+  n=length(unique(class))
+  if(n == 35)bank=bank-2
+  else bank =bank +1
+}
+results[j]=bank
+}
+hist(results)
+```
 
 
 
