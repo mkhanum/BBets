@@ -56,22 +56,74 @@ results[j]=bank
 }
 hist(results)
 ```
-
-# Profit Estimate
+  
+# What size of class makes the 2:1 bet fair?  
+<!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
 
 ```{r}
 favstats(results)
 ```
 
 The expected amount of money is `r mean(results)`
-
-# What size of class makes the 2:1 bet fair?  
-<!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
-
-
-# In the class and payoff as described what is a 95% confidence interval for Brownlow's earnings?
   
+  
+# In the class and payoff as described what is a 95% confidence interval for Brownlow's earnings?
+# 95% confidence interval  
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
+
+```{r}
+results=vector("numeric")
+for(j in 1:1000){ 
+bank=0
+for(i in 1:637){
+  class=sample(daysYEAR,35,replace=TRUE)
+  n=length(unique(class))
+  if(n == 35)bank=bank-2
+  else bank =bank +1
+}
+results[j]=bank
+}
+sortRESULTS=sort(results)
+lcl=sortRESULTS[25]
+ucl=sortRESULTS[975]
+```
+Lower confidence level= `r lcl`  
+Upper confidence level= `r ucl`  
+
+# Fair odds pay off  
+
+```{r}
+results=vector("numeric")
+for(j in 1:1000){ 
+bank=0
+for(i in 1:637){
+  class=sample(daysYEAR,35,replace=TRUE)
+  n=length(unique(class))
+  if(n == 35)bank=bank-3
+  else bank =bank +1
+}
+results[j]=bank
+}
+hist(results)
+```
+The amount that Dr. J would have to pay to make this a fair bet is   
+
+# Number of students for a fair bet
+
+```{r}
+results=vector("numeric")
+for(j in 1:1000){ 
+bank=0
+for(i in 1:637){
+  class=sample(daysYEAR,15,replace=TRUE)
+  n=length(unique(class))
+  if(n == 15)bank=bank-2
+  else bank =bank +1
+}
+results[j]=bank
+}
+hist(results)
+```
 
 
 # Discussion and Conclusion
